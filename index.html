@@ -1,12 +1,16 @@
+
 <!doctype>
 <html>
 <head>
   <title>Don Vinzenso</title>
 	<link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
 	<link rel="stylesheet" href="style.css">
+  <audio src="assets/Kirvu_Elaj_todo.mp3" id="audioTest"></audio>
 </head>
 
 <body>
+  <audio ontimeupdate="initProgressBar(this)" id="audioTest" controls src="assets/Kirvu_Elaj_todo.mp3">
+  </audio>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 	<script src="script.js"></script>

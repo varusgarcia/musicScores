@@ -7,3 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
 function getData(data){
   console.log(data);
 }
+
+var audioTest = document.getElementById("audioTest");
+
+//audioTest.play()
+console.log(audioTest.currentTime);
+
+function initProgressBar(event) {
+	console.log(audioTest.currentTime);
+}
