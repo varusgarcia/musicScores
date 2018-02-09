@@ -5,12 +5,25 @@
   <title>Don Vinzenso</title>
 	<link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
 	<link rel="stylesheet" href="style.css">
-  <audio src="assets/Kirvu_Elaj_todo.mp3" id="audioTest"></audio>
+
 </head>
 
 <body>
-  <audio ontimeupdate="initProgressBar(this)" id="audioTest" controls src="assets/Kirvu_Elaj_todo.mp3">
-  </audio>
+  <div id="audioPlayer">
+    <div id="audioPlayerPlay">
+      <button onclick="play()" id="playButton"></button>
+    </div>
+    <div id="audioPlayerTimecode">
+      <p id="audioPlayerTimecodeText">00:00</p>
+    </div>
+    <div id="audioPlayerSlider">
+      <input type="range" min="0" max="10000" value="0" class="slider" id="myRange">
+      <p>Value: <span id="demo"></span></p>
+    </div>
+
+  </div>
+
+  <audio src="assets/music.mp3" ontimeupdate="playing(this)" id="audioTest"></audio>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 	<script src="script.js"></script>

@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  background-color: black
+}
+
+#audioPlayer {
+  position: fixed;
+  bottom: 20px;
+  width: 80%;
+  padding-left: 10%;
+  height: 40px;
+}
+#audioPlayerPlay {
+  width: 66px;
+  height: 40px;
+  float: left;
+}
+
+#audioPlayerSlider {
+  margin-left: 66px;
+  height: 40px;
+  padding-top: 15px;
+  margin-right: 66px;
+}
+
+#audioPlayerTimecode {
+  height: 40px;
+  padding-top: 0px;
+  float: right;
+  color: white;
+  font-size: 15px;
+  line-height: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#playButton {
+
+  height: 40px;
+  width: 40px;
+  background: url('assets/Icon/Play_Active.png');
+  border: 0;
+}
+#playButton:hover {
+  height: 40px;
+  width: 40px;
+  background: url('assets/Icon/Play_Active_Hover.png');
+  border: 0;
+}
+#playButton:focus {
+  outline:0;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    background: white;
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 37px;
+    border: 0;
+    background: url('assets/Icon/Slider_Handle.png');
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 24px;
+    height: 37px;
+    border: 0;
+    background: url('assets/Icon/Slider_Handle.png');
+    cursor: pointer;
+}
