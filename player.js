@@ -1,44 +1,54 @@
-console.log("Hello");
-document.addEventListener('DOMContentLoaded', function() {
-  var URL = "https://docs.google.com/spreadsheets/d/1EZGMC3akrhkV_5Mgxyxt1ExEfPNxbA2Za1s1C_hDLhc/edit?usp=sharing"
-  Tabletop.init({
-    key: URL,
-    callback: getData,
-    simpleSheet: true
-  })
-})
 
-function getData(data) {
-  console.log(data);
-}
 
-var audioTest = document.getElementById("audioTest");
 var played = false;
+var playerSettingsDeployed = false;
 var playButton = document.getElementById("playButton");
 var sliderRange = document.getElementById("myRange");
-
-
 
 
 function play() {
 	console.log(played);
   if (!played) {
     console.log("Play");
-    audioTest.play()
+		document.getElementById("allTraces").play()
+		for (d=0; d<musicTraces.length; d++){
+			document.getElementById(musicTraces[d]).play()
+		}
     playButton.style.background = "url('assets/Icon/Pause_Active.png')"
     played = true
   } else {
     console.log("Pause");
-    audioTest.pause()
+		document.getElementById("allTraces").pause()
+		for (d=0; d<musicTraces.length; d++){
+			document.getElementById(musicTraces[d]).pause()
+		}
     playButton.style.background = "url('assets/Icon/Play_Active.png')"
     played = false
   }
 }
 
 sliderRange.oninput = function() {
-	audioTest.currentTime = mapArea(this.value/10000,0,1,0,audioTest.duration)
+	var allTracesId = document.getElementById("allTraces")
+	allTracesId.currentTime = mapArea(this.value/10000,0,1,0,allTracesId.duration)
+	for (d=0; d<musicTraces.length; d++){
+		var thisTracesId = document.getElementById(musicTraces[d])
+		thisTracesId.currentTime = mapArea(this.value/10000,0,1,0,thisTracesId.duration)
+	}
 }
 
+
+function muteTraces(event) {
+	var id = event.target.id.split("-").pop()
+	var element = document.getElementById(id)
+	var buttonElement = document.getElementById(event.target.id)
+	if (!element.muted) {
+		element.muted = true
+		buttonElement.style.opacity = "0.3"
+	}else{
+		element.muted = false
+		buttonElement.style.opacity = "1.0"
+	}
+}
 function playing(event) {
   var length = event.duration
   var current_time = event.currentTime;
@@ -50,7 +60,32 @@ function playing(event) {
 	if (current_time == length) {
 		playButton.style.background = "url('assets/Icon/Play_Active.png')"
 		played = false;
-		audioTest.currentTime = 0;
+		setAllTracksToTime(0)
+	}
+}
+
+function settings() {
+	var audioPlayer = document.getElementById("audioPlayerWrapper")
+	if (playerSettingsDeployed) {
+		audioPlayer.style.bottom = "-90px"
+		playerSettingsDeployed = false
+	} else {
+		audioPlayer.style.bottom = "0px"
+		playerSettingsDeployed = true
+	}
+
+}
+
+function setAllTracksToTime (time){
+	var allTracesId = document.getElementById("allTraces")
+	allTracesId.currentTime = time
+	for (d=0; d<musicTraces.length; d++){
+		var thisTracesId = document.getElementById(musicTraces[d])
+		thisTracesId.currentTime = time
+	}
+	document.getElementById("allTraces").pause()
+	for (d=0; d<musicTraces.length; d++){
+		document.getElementById(musicTraces[d]).pause()
 	}
 }
 

@@ -4,28 +4,42 @@
 <head>
   <title>Don Vinzenso</title>
 	<link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="playerStyle.css">
 
 </head>
 
 <body>
-  <div id="audioPlayer">
-    <div id="audioPlayerPlay">
-      <button onclick="play()" id="playButton"></button>
-    </div>
-    <div id="audioPlayerTimecode">
-      <p id="audioPlayerTimecodeText">00:00</p>
-    </div>
-    <div id="audioPlayerSlider">
-      <input type="range" min="0" max="10000" value="0" class="slider" id="myRange">
-      <p>Value: <span id="demo"></span></p>
-    </div>
+  <div id="background">
 
   </div>
+  <div id="audioPlayerWrapper">
+    <div id="audioPlayer">
+      <div id="audioPlayerMain">
+        <div id="audioPlayerPlay">
+          <button onclick="play()" id="playButton"></button>
+        </div>
+        <div id="audioPlayerSlider">
+          <input type="range" min="0" max="10000" value="0" class="slider" id="myRange">
+        </div>
+        <div id="audioPlayerTimecode">
+          <p id="audioPlayerTimecodeText">00:00</p>
+        </div>
+      </div>
+      <div id="audioPlayerSettings">
+        <button onclick="settings()" id="settingsButton"></button>
+      </div>
+    </div>
+    <div id="audioPlayerMuteButtons">
+    </div>
+  </div>
 
-  <audio src="assets/music.mp3" ontimeupdate="playing(this)" id="audioTest"></audio>
+  <div id="musicTraces">
+    <audio muted ontimeupdate="playing(this)" id="allTraces"></audio>
+
+  </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
-	<script src="script.js"></script>
+  <script src="load.js"></script>
+	<script src="player.js"></script>
 </body>
 </html>

@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  background-color: black;
+  margin: 0px;
+
+}
+#background{
+  width: 100%;
+  height: 100%;
+  opacity: 0.0;
+  transition: opacity 4s ease-in;
+}
+
+#audioPlayerWrapper {
+  position: fixed;
+  width: 100%;
+  background-color: black;
+  opacity: 1;
+  transition: bottom 0.3s ease-in;
+  bottom: -90px;
+  height: 160px;
+}
+#audioPlayerMuteButtons {
+  width:80%;
+  padding-left:  10%;
+}
+.muteButton {
+  transition: opacity 0.2s;
+  opacity: 1;
+  height: 40px;
+  width: 40px;
+  margin-right: 40px;
+  margin-top: 30px;
+  border: 0;
+}
+
+.muteButton:hover {
+  transition: opacity 0.2s;
+  opacity: 0.65;
+}
+.muteButton:focus {
+  outline:0;
+}
+
+#audioPlayer {
+  padding-top: 15px;
+  width: 80%;
+  padding-left: 10%;
+  height: 40px;
+}
+
+#audioPlayerMain {
+  height: 40px;
+  width: 90%;
+  float: left;
+}
+#audioPlayerPlay {
+  width: 10%;
+  height: 40px;
+  float: left;
+}
+
+#audioPlayerSlider {
+  float: left;
+  margin-left: 0px;
+  height: 40px;
+  padding-top: 15px;
+  width: 80%
+}
+
+#audioPlayerTimecode {
+  width: 10%;
+  float: left;
+  height: 40px;
+  color: white;
+  font-size: 15px;
+  line-height: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+#audioPlayerTimecode p {
+  text-align: center;
+}
+
+#audioPlayerSettings {
+  float: left;
+  width: 10%;
+  height: 40px;
+}
+
+#settingsButton {
+  transition: opacity 0.2s;
+  opacity: 1;
+  height: 40px;
+  width: 40px;
+  background: url('assets/Icon/Settings.png');
+  border: 0;
+}
+#settingsButton:hover {
+  transition: opacity 0.2s;
+  opacity: 0.65;
+}
+#settingsButton:focus {
+  outline:0;
+}
+
+#playButton {
+  transition: opacity 0.2s;
+  opacity: 1;
+  height: 40px;
+  width: 40px;
+  background: url('assets/Icon/Play_Active.png');
+  border: 0;
+}
+#playButton:hover {
+  transition: opacity 0.2s;
+  opacity: 0.65;
+}
+#playButton:focus {
+  outline:0;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    background: white;
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 37px;
+    border: 0;
+    background: url('assets/Icon/Slider_Handle.png');
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 24px;
+    height: 37px;
+    border: 0;
+    background: url('assets/Icon/Slider_Handle.png');
+    cursor: pointer;
+}
