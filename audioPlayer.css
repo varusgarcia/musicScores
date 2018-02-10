@@ -1,21 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
 
-body {
-  background-color: black;
-  margin: 0px;
-
-}
-#background{
-  width: 100%;
-  height: 100%;
-  opacity: 0.0;
-  transition: opacity 4s ease-in;
-}
 
 #audioPlayerWrapper {
   position: fixed;
   width: 100%;
-  background-color: black;
+  background: rgba(0, 0, 0, .5);
   opacity: 1;
   transition: bottom 0.3s ease-in;
   bottom: -90px;

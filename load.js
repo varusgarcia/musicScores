@@ -11,6 +11,11 @@ var currentId = "none";
 var musicTraces = [];
 var posibleMusicTraces = ["Voz", "Guitarra", "Pandereta"]
 
+var scoreSubdivisions = 0;
+var scoreTimes  = []
+
+
+
 function getData(data) {
 	//get ID and check for duplicates
 	for(i=0; i<data.length; i++){
@@ -20,8 +25,8 @@ function getData(data) {
 			if (currentId == "none"){
 				currentId = rowData.Id
 				for(d=0; d<posibleMusicTraces.length; d++){
+
 					var times = Number(rowData[posibleMusicTraces[d]])
-					console.log(times);
 					if (times>=2){
 						for(j=0; j<times; j++){
 							musicTraces.push(posibleMusicTraces[d] + Number(j+1))
@@ -30,10 +35,11 @@ function getData(data) {
 						musicTraces.push(posibleMusicTraces[d] + times)
 					}
 				}
-				document.getElementById("allTraces").src = "assets/music/" + currentId +".mp3"
+				document.getElementById("allTraces").src = "assets/audio/" + currentId +".mp3"
+
 				for (d=0; d<musicTraces.length; d++){
 					var audio = document.createElement("audio");
-					audio.src = "assets/music/" + currentId +"-"+ musicTraces[d]+".mp3"
+					audio.src = "assets/audio/" + currentId +"-"+ musicTraces[d]+".mp3"
 					audio.id = musicTraces[d]
 					document.getElementById("musicTraces").appendChild(audio);
 
@@ -46,6 +52,58 @@ function getData(data) {
 					document.getElementById("button-" + musicTraces[d]).style.background = "url('assets/Icon/" + musicTraces[d] + ".png')"
 				}
 
+        var descriptionHead = document.getElementById("descriptionHead")
+        var descriptionMetadata = document.getElementById("descriptionMetadata")
+        var descriptionTextDiv = document.getElementById("descriptionTextWrappper")
+
+        var descriptionTitle = document.createElement("p")
+        descriptionTitle.innerHTML = rowData.Titulo
+        descriptionTitle.id = "descriptionTitle"
+
+        var descriptionSubtitle = document.createElement("p")
+        descriptionSubtitle.innerHTML = rowData.Subtitulo
+        descriptionSubtitle.id = "descriptionSubtitle"
+
+        descriptionHead.appendChild(descriptionTitle)
+        if (rowData.Subtitulo != ""){
+          descriptionMetadata.appendChild(descriptionSubtitle)
+        }
+
+        var metadataCategoryClass = document.createElement("p")
+        if (rowData.Categoria != ""){
+          if (rowData.Clase != ""){
+            metadataCategoryClass.innerHTML = rowData.Categoria +"</br>"+rowData.Clase
+          } else {
+            metadataCategoryClass.innerHTML = rowData.Categoria
+          }
+          metadataCategoryClass.id = "metadataCategoryClass"
+          descriptionMetadata.appendChild(metadataCategoryClass)
+        }else if (rowData.Clase != ""){
+          metadataCategoryClass.innerHTML = rowData.Clase
+          metadataCategoryClass.id = "metadataCategoryClass"
+          descriptionMetadata.appendChild(metadataCategoryClass)
+        }
+        var descriptionText = document.createElement("p")
+        descriptionText.id = "descriptionText"
+        descriptionText.innerHTML = rowData.Descripcion
+
+        descriptionTextDiv.appendChild(descriptionText)
+
+        scoreSubdivisions = Number(rowData.Estrofas)
+        var obj = rowData.EstrofasSec.split(';')
+        for (j=0;j<obj.length;j++){
+          var indivTimes = {e:0, t:0}
+          var splitObj = obj[j].split(',')
+          for (y=0;y<splitObj.length;y++){
+            if (y == 0){
+              indivTimes.e = Number(splitObj[y])
+            }else {
+              indivTimes.t = Number(splitObj[y])
+            }
+          }
+          scoreTimes.push(indivTimes)
+        }
+
 			}else if (currentId == rowData.Id){
 				console.log("ERROR: DUPLICATE ID");
 			}
@@ -55,11 +113,16 @@ function getData(data) {
 	//set ID to content and checks if ID exists
 	if (currentId != "none"){
 		// console.log("url('assets/" + currentId + ".jpg')");
-		var background = document.getElementById("background")
+		var background = document.getElementById("bg")
+    var mainContentBackground = document.getElementById("mainContent")
+    var musicScoreWrapper = document.getElementById("musicScoreWrapper")
+    var scoreDescriptionWrapper = document.getElementById("scoreDescriptionWrapper")
 		background.style.background = "url('assets/" + currentId + ".jpg')"
-		background.style.backgroundSize = "90%"
+		background.style.backgroundSize = "80%"
 		background.style.backgroundRepeat = "no-repeat"
 		background.style.opacity = 1.0;
+    mainContentBackground.style.opacity = 1.0;
+
 	}else {
 		console.log("ERROR: NO ID FOUND");
 	}

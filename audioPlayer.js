@@ -29,11 +29,13 @@ function play() {
 
 sliderRange.oninput = function() {
 	var allTracesId = document.getElementById("allTraces")
-	allTracesId.currentTime = mapArea(this.value/10000,0,1,0,allTracesId.duration)
+	var mappedTime = mapArea(this.value/10000,0,1,0,allTracesId.duration)
+	allTracesId.currentTime = mappedTime
 	for (d=0; d<musicTraces.length; d++){
 		var thisTracesId = document.getElementById(musicTraces[d])
-		thisTracesId.currentTime = mapArea(this.value/10000,0,1,0,thisTracesId.duration)
+		thisTracesId.currentTime = mappedTime
 	}
+
 }
 
 
@@ -50,13 +52,13 @@ function muteTraces(event) {
 	}
 }
 function playing(event) {
+	moveScore(event.currentTime)
   var length = event.duration
   var current_time = event.currentTime;
   var totalLength = calculateTotalValue(length)
   var currentTime = calculateCurrentValue(current_time);
 	sliderRange.value = (event.currentTime / event.duration)*10000;
 	document.getElementById("audioPlayerTimecodeText").innerHTML = currentTime
-
 	if (current_time == length) {
 		playButton.style.background = "url('assets/Icon/Play_Active.png')"
 		played = false;
