@@ -89,16 +89,16 @@ function getData(data) {
 
         descriptionTextDiv.appendChild(descriptionText)
 
-        scoreSubdivisions = Number(rowData.Estrofas)
-        var obj = rowData.EstrofasSec.split(';')
+        scoreSubdivisions = Number(rowData.Pentagramas)
+        var obj = rowData.PentagramasSec.split(';')
         for (j=0;j<obj.length;j++){
           var indivTimes = {e:0, t:0}
           var splitObj = obj[j].split(',')
           for (y=0;y<splitObj.length;y++){
             if (y == 0){
-              indivTimes.e = Number(splitObj[y])
-            }else {
               indivTimes.t = Number(splitObj[y])
+            }else {
+              indivTimes.e = Number(splitObj[y])
             }
           }
           scoreTimes.push(indivTimes)
