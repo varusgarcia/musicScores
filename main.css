@@ -16,6 +16,7 @@ html {
     background: transparent;  /* optional: just make scrollbar invisible */
 }
 
+
 #bg {
   width: 100%;
   height: 100%;
@@ -25,6 +26,41 @@ html {
   transition: opacity 2s ease-out 2s;
   z-index: -1
 }
+#menuWrapper {
+  width: 0%;
+  float: left;
+  transition: all 1s ease-in;
+  height: 100%;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+#topBarWrapper {
+  position: fixed;
+  margin: 44px;
+  height: 40px;
+  top: 0px;
+  width: 100%;
+  transition: all 1s ease-in;
+}
+#openCloseMenuButton {
+  transition: all 1s ease-in;
+  opacity: 1;
+  height: 40px;
+  width: 40px;
+  border: 0;
+  background: url('assets/Icon/openMenu.png');
+}
+
+#openCloseMenuButton:hover {
+  opacity: 0.65;
+}
+#openCloseMenuButton:focus {
+  outline:0;
+}
+
 #mainContent{
   width: 100%;
   opacity: 0.0;
@@ -36,6 +72,8 @@ html {
   float: left;
   margin-top: 200px;
   margin-bottom: 70px;
+  transition: width 1s ease-in;
+
 }
 #musicScore {
   display: inline-block;
@@ -49,7 +87,7 @@ html {
   width: 65%;
   height: 100%;
   display: inline-block;
-
+  transition: width 1s ease-in;
 }
 #scoreDescription{
   width: 80%;

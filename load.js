@@ -14,9 +14,11 @@ var posibleMusicTraces = ["Voz", "Guitarra", "Pandereta"]
 var scoreSubdivisions = 0;
 var scoreTimes  = []
 
-
+var staticData = []
 
 function getData(data) {
+  buildMenu(data)
+  staticData = data
 	//get ID and check for duplicates
 	for(i=0; i<data.length; i++){
 		rowData = data[i]
@@ -126,4 +128,50 @@ function getData(data) {
 	}else {
 		console.log("ERROR: NO ID FOUND");
 	}
+}
+
+
+function buildMenu(data){
+
+  var menu = document.getElementById("menu")
+  for(i=0; i<data.length; i++){
+    rowData = data[i]
+
+    var menuTitle = document.createElement("p")
+    menuTitle.innerHTML = rowData.Titulo
+    menuTitle.className = "menuTitleClass"
+    menuTitle.id = rowData.Id + "-menuItemTitle"
+
+    var menuSubtitle = document.createElement("p")
+    menuSubtitle.innerHTML = rowData.Categoria +" | "+ rowData.Clase
+    menuSubtitle.className = "menuSubtitleClass"
+
+    var menuLink = document.createElement("a")
+    menuLink.id = rowData.Id + "-menuItem"
+    // menuLink.addEventListener("click", function(e) {
+    //   var itemId = e.target.id.replace('-menuItemTitle','');
+    //   changeQuery(itemId)
+    //   reloadWithId(itemId)
+    // }, false);
+    menuLink.href = "https://varusgarcia.github.io/musicScores?" + rowData.Id
+    menuLink.className = "menuButton"
+
+    var menuDiv = document.createElement("div")
+    menuDiv.className = "menuButtonDiv"
+
+    menuLink.appendChild(menuTitle)
+    menuLink.appendChild(menuSubtitle)
+    menuDiv.appendChild(menuLink)
+    menu.appendChild(menuDiv)
+  }
+}
+
+function reloadWithId(itemId){
+  for (i=0; i<staticData.length; i++){
+    var rowData = staticData[i]
+    if (rowData.Id == itemId){
+
+
+    }
+  }
 }

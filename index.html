@@ -5,6 +5,7 @@
   <title>Don Vinzenso</title>
 	<link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
   <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="menu.css">
 	<link rel="stylesheet" href="audioPlayer.css">
   <script src="load.js"></script>
   <script src="main.js"></script>
@@ -14,11 +15,17 @@
   <div id="bg">
 
   </div>
-  <button onclick="myFunction()">Load new document</button>
+  <!-- <button onclick="changeQuery(this)" id="la-manana">Load new document</button> -->
 
   <div id="mainContent">
+    <div id="menuWrapper">
+      <div id="menu">
+
+      </div>
+    </div>
     <div id="musicScoreWrapper">
       <div id="musicScore">
+
         <!-- <button id="buttonOverScore"></button> -->
         <!-- <iframe src="https://varusgarcia.github.io/musicScores/assets/la-manana.pdf" width="100%" height="100%" frameborder ="0"></iframe> -->
         <img onclick="goFullScreen()" src="assets/scores/la-manana-score.jpg" width="100%" id="musicScoreButton">
@@ -40,6 +47,10 @@
 
       </div>
     </div>
+  </div>
+
+  <div id="topBarWrapper">
+    <button onclick="openCloseMenu()" id="openCloseMenuButton"></button>
   </div>
 
   <div id="audioPlayerWrapper">
