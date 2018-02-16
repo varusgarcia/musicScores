@@ -12,9 +12,11 @@
 
 .menuButtonDiv {
   margin-left: 40px;
+  margin-right: 70px;
   margin-top: 30px;
   opacity: 0.6;
   transition: all 0.2s ease-in;
+  border-bottom: 1px solid grey;
 }
 .menuButtonDiv:hover {
   opacity: 1;
@@ -29,4 +31,56 @@
 }
 #menu {
   margin-top: 100px;
+}
+
+#printButton {
+  transition: opacity 0.2s;
+  margin-right: 25px;
+  opacity: 1;
+  height: 40px;
+  width: 40px;
+  background: url('assets/Icon/Print.png');
+  border: 0;
+}
+#printButton:hover {
+  transition: opacity 0.2s;
+  opacity: 0.65;
+}
+#printButton:focus {
+  outline:0;
+}
+
+#shareButton {
+  transition: opacity 0.2s;
+  margin-right: 25px;
+  opacity: 1;
+  height: 40px;
+  width: 40px;
+  background: url('assets/Icon/Share.png');
+  border: 0;
+}
+#shareButton:hover {
+  transition: opacity 0.2s;
+  opacity: 0.65;
+}
+#shareButton:focus {
+  outline:0;
+}
+#downloadButton {
+  transition: opacity 0.2s;
+  opacity: 1;
+  height: 40px;
+  width: 40px;
+  background: url('assets/Icon/Download.png');
+  border: 0;
+}
+#downloadButton:hover {
+  transition: opacity 0.2s;
+  opacity: 0.65;
+}
+#downloadButton:focus {
+  outline:0;
+}
+#rightButtons {
+  float: right;
 }

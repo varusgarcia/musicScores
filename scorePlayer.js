@@ -1,14 +1,18 @@
 var fullScreen = false;
 var musicScoreButton = document.getElementById("musicScoreButton")
+var musicScoreGoFullScreenButton = document.getElementById("scoreOnTop")
+var topBar = document.getElementById("topBarWrapper")
 var targetSubdivision = 0;
 var subdivisionChanged = false;
 
 musicScoreButton.onmouseover = function(){
   if (!fullScreen){
+    musicScoreGoFullScreenButton.style.opacity = "1"
     musicScoreButton.style.opacity = "0.7";
   }
 }
 musicScoreButton.onmouseout = function(){
+  musicScoreGoFullScreenButton.style.opacity = "0"
   musicScoreButton.style.opacity = "1";
 }
 
@@ -17,6 +21,8 @@ function goFullScreen(){
   var musicScoreWrapper = document.getElementById("musicScoreWrapper")
   var scoreDescriptionWrapper = document.getElementById("scoreDescriptionWrapper")
   if (!fullScreen){
+    topBar.style.opacity = "0"
+    musicScoreGoFullScreenButton.style.opacity = "0"
     musicScoreButton.style.opacity = "1";
     musicScoreWrapper.style.width = "100%"
     musicScoreWrapper.style.transition = "all 0.5s ease-in 0.5s"
@@ -27,6 +33,7 @@ function goFullScreen(){
     fullScreen = true;
 
   } else {
+    topBar.style.opacity = "1"
     musicScoreWrapper.style.width = "35%"
     musicScoreWrapper.style.transition = "all 0.5s ease-out"
     musicScoreWrapper.style.marginTop = "200"

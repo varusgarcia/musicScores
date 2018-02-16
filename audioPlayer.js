@@ -14,7 +14,7 @@ function play() {
 		for (d=0; d<musicTraces.length; d++){
 			document.getElementById(musicTraces[d]).play()
 		}
-    playButton.style.background = "url('assets/Icon/Pause_Active.png')"
+    playButton.style.background = "url('assets/Icon/Pause.png')"
     played = true
   } else {
     console.log("Pause");
@@ -22,7 +22,7 @@ function play() {
 		for (d=0; d<musicTraces.length; d++){
 			document.getElementById(musicTraces[d]).pause()
 		}
-    playButton.style.background = "url('assets/Icon/Play_Active.png')"
+    playButton.style.background = "url('assets/Icon/Play.png')"
     played = false
   }
 }
@@ -60,7 +60,7 @@ function playing(event) {
 	sliderRange.value = (event.currentTime / event.duration)*10000;
 	document.getElementById("audioPlayerTimecodeText").innerHTML = currentTime
 	if (current_time == length) {
-		playButton.style.background = "url('assets/Icon/Play_Active.png')"
+		playButton.style.background = "url('assets/Icon/Play.png')"
 		played = false;
 		setAllTracksToTime(0)
 	}

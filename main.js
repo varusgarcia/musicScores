@@ -32,3 +32,17 @@ function openCloseMenu(){
 function menuItemTapped(event) {
   console.log(event.id);
 }
+
+function print() {
+   var url = "https:\/\/varusgarcia.github.io/musicScores/assets/pdf/" +currentId+ ".pdf"
+  var win = window.open(url, '_blank');
+  win.focus();
+}
+
+function share(){
+
+}
+
+function download(){
+
+}

@@ -54,6 +54,25 @@ function getData(data) {
 					document.getElementById("button-" + musicTraces[d]).style.background = "url('assets/Icon/" + musicTraces[d] + ".png')"
 				}
 
+        var rightButtons = document.getElementById("rightButtons")
+
+        var printLink = document.createElement("a")
+        printLink.setAttribute('href', "https:\/\/varusgarcia.github.io/musicScores/assets/pdf/"+currentId+".pdf"); 
+        printLink.innerHTML = "<button id=\"printButton\"></button>"
+        printLink.setAttribute('target', '_tab');
+        var shareLink = document.createElement("a")
+        shareLink.innerHTML = "<button id=\"shareButton\"></button>"
+        shareLink.href = "https:\//www.facebook.com/sharer/sharer.php?u=varusgarcia.github.io/musicScores/assets/pdf/"+currentId+".pdf"
+        shareLink.setAttribute('target', '_tab');
+        var downloadLink = document.createElement("a")
+        downloadLink.href = "https:\/\/varusgarcia.github.io/musicScores/assets/pdf/"+currentId+".pdf"
+        downloadLink.download = currentId + ".pdf"
+        downloadLink.innerHTML = "<button id=\"downloadButton\"></button>"
+
+        rightButtons.appendChild(printLink)
+        rightButtons.appendChild(shareLink)
+        rightButtons.appendChild(downloadLink)
+
         var descriptionHead = document.getElementById("descriptionHead")
         var descriptionMetadata = document.getElementById("descriptionMetadata")
         var descriptionTextDiv = document.getElementById("descriptionTextWrappper")
@@ -127,6 +146,7 @@ function getData(data) {
 
 	}else {
 		console.log("ERROR: NO ID FOUND");
+    alert("Por favor, inserte un nomnbre valido en el Url.")
 	}
 }
 

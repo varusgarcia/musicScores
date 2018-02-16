@@ -97,7 +97,7 @@
   opacity: 1;
   height: 40px;
   width: 40px;
-  background: url('assets/Icon/Play_Active.png');
+  background: url('assets/Icon/Play.png');
   border: 0;
 }
 #playButton:hover {

@@ -39,11 +39,15 @@ html {
 
 #topBarWrapper {
   position: fixed;
-  margin: 44px;
+  margin-top: 44px;
   height: 40px;
   top: 0px;
   width: 100%;
   transition: all 1s ease-in;
+}
+#topBarMargin {
+  margin-left: 44px;
+  margin-right: 44px;
 }
 #openCloseMenuButton {
   transition: all 1s ease-in;
@@ -80,6 +84,8 @@ html {
   width: 80%;
   margin-left: 10%;
   background: black;
+  position: relative;
+  height: auto;
 }
 #scoreDescriptionWrapper {
   opacity: 1;
@@ -92,7 +98,7 @@ html {
 #scoreDescription{
   width: 80%;
   margin-left: 10%;
-  margin-top: 40%;
+  margin-top: 300px;
 }
 
 #descriptionHead {
@@ -149,5 +155,15 @@ html {
 
 #musicScoreButton{
   opacity: 1;
+  transition: opacity 0.2s cubic-bezier(.25,.8,.25,1);
+}
+#scoreOnTop {
+  position: absolute;
+  width: 50%;
+  top: 25%;
+  left: 25%;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
   transition: opacity 0.2s cubic-bezier(.25,.8,.25,1);
 }
