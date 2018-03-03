@@ -57,15 +57,15 @@ function getData(data) {
         var rightButtons = document.getElementById("rightButtons")
 
         var printLink = document.createElement("a")
-        printLink.setAttribute('href', "https:\/\/varusgarcia.github.io/musicScores/assets/pdf/"+currentId+".pdf"); 
+        printLink.setAttribute('href', currentLink + "/assets/pdf/"+currentId+".pdf");
         printLink.innerHTML = "<button id=\"printButton\"></button>"
         printLink.setAttribute('target', '_tab');
         var shareLink = document.createElement("a")
         shareLink.innerHTML = "<button id=\"shareButton\"></button>"
-        shareLink.href = "https:\//www.facebook.com/sharer/sharer.php?u=varusgarcia.github.io/musicScores/assets/pdf/"+currentId+".pdf"
+        shareLink.href = "https:\//www.facebook.com/sharer/sharer.php?u=" +currentLink+ "/assets/pdf/"+currentId+".pdf"
         shareLink.setAttribute('target', '_tab');
         var downloadLink = document.createElement("a")
-        downloadLink.href = "https:\/\/varusgarcia.github.io/musicScores/assets/pdf/"+currentId+".pdf"
+        downloadLink.href = currentLink + "/assets/pdf/"+currentId+".pdf"
         downloadLink.download = currentId + ".pdf"
         downloadLink.innerHTML = "<button id=\"downloadButton\"></button>"
 
@@ -110,8 +110,8 @@ function getData(data) {
 
         descriptionTextDiv.appendChild(descriptionText)
 
-        scoreSubdivisions = Number(rowData.Pentagramas)
-        var obj = rowData.PentagramasSec.split(';')
+        scoreSubdivisions = Number(rowData.Sistemas)
+        var obj = rowData.SegundosSistemas.split(';')
         for (j=0;j<obj.length;j++){
           var indivTimes = {e:0, t:0}
           var splitObj = obj[j].split(',')

@@ -1,3 +1,5 @@
+var currentLink = "https:\/\/varusgarcia.github.io/musicScores"
+
 function changeQuery(event) {
   window.history.pushState({path:event},'','?' + event);
 }
@@ -34,7 +36,7 @@ function menuItemTapped(event) {
 }
 
 function print() {
-   var url = "https:\/\/varusgarcia.github.io/musicScores/assets/pdf/" +currentId+ ".pdf"
+   var url = currentLink + "/assets/pdf/" +currentId+ ".pdf"
   var win = window.open(url, '_blank');
   win.focus();
 }
